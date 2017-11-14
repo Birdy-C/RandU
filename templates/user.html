@@ -1,0 +1,12 @@
+﻿{% extends "userlayout.html" %}
+
+{% block content %}
+
+<div>
+     <a href="{{ url_for('send') }}">我要寄信</a>     
+</div>
+<div>
+    <a href="{{ url_for('receive') }}">确认收信</a>
+</div>
+
+{% endblock %}

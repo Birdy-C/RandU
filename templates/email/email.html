@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+	.email{
+    position:relative;
+	}
+
+#image_email{
+    position:absolute;
+    width:400px;
+    min-width:400px;
+}
+
+.email_content{
+    position:relative;
+    height:500px;
+}
+
+#email_head{
+    position:absolute;
+    left:3%;
+    font-size:23px;
+    color:#444;
+    top:12%;
+    min-width:400px;
+}
+
+#email_name{
+    position:absolute;
+    left:3%;
+    top:21%;
+    font-size:15px;
+    color:#444;
+    min-width:400px;
+}
+
+#email_token{
+    position:absolute;
+    left:3%;
+    top:26%;
+    font-size:23px;
+    color:#444;
+    min-width:400px;
+}
+
+#information_name{
+    position:absolute;
+    left:2%;
+    font-size:11px;
+    top:43%;
+    color:#888;
+    min-width:400px;
+}
+
+#information_about{
+    position:absolute;
+    left:2%;
+    top:48%;
+    font-size:11px;
+    min-width:400px;
+    color:#888;
+}
+</head>
+
+<body>
+    <div class="email">
+        <img src="EmailBack.jpg" id="image_email" />
+        <div class="email_content">
+            <p id="email_head">尊敬的用户：</p>
+            <p id="email_name">以下是您登陆账户{{name}}时所需的令牌验证码：</p>
+            <p id="email_token">{{token}}</p>
+            <p id="information_name">29舍吃鸡团队</p>
+            <a href="{{url_for('about')}}" id="information_about">关于我们</a>
+        </div>
+    </div>
+</body>
+</html>

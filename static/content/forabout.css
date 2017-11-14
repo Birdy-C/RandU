@@ -1,0 +1,156 @@
+﻿body {
+    background-color: #d7c9c9;
+}
+.center-title {
+    font-family: HYQiHei-105JF;
+    text-align: center;
+    font-size: 40px;
+}
+.center-sub-title {
+    font-family: HYRunYuan-65W;
+    text-align: center;
+    font-size: 15px;
+}
+.center-l2-title {
+    padding: 10px 10px 30px 10px;
+    font-family: HYRunYuan-65W;
+    text-align: center;
+    font-size: 20px;
+}
+.center-text {
+    text-align: center;
+}
+.center-left-text {
+    padding-left:40%;
+}
+
+#about-body {
+    position: relative;
+    border-radius: 10px;
+    background-clip: padding-box;
+    box-shadow: inset 0 0 9px white;
+    margin: 20px;
+    padding: 50px;
+    background-repeat: round;
+    background-attachment: fixed;
+    background-image: url("/static/image/AboutBack.jpg");
+}
+
+    #about-body::after {
+        position: absolute;
+        top: -6px;
+        bottom: -6px;
+        left: -6px;
+        right: -6px;
+        background: linear-gradient(to left, #cec1c1, #e6e6e6, #d7c9c9);
+        box-shadow: 3px 5px 25px #806f61;
+        content: '';
+        z-index: -1;
+        border-radius: 16px;
+    }
+
+#big-horizontal-line {
+    width: 80%;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #666;
+    margin-bottom:50px;
+}
+#team-part{
+    position:relative;
+}
+
+#team-pic {
+    max-width: 80%;
+    box-shadow: inset 0px 0px 18px white;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #dddddd;
+    border-radius: 50px;
+}
+
+.hover-round-card {
+    position:absolute;
+    font-family: STZHONGS;
+    font-size: 20px;
+    color: white;
+    width: 300px;
+    height: 50px;
+}
+
+    .hover-round-card::before {
+        top: -3px;
+        left: -9px;
+        content: "";
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background: #ddd;
+        opacity: 0.25;
+        border-radius: 15px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .hover-round-card::after {
+        left: 8%;
+        content: "";
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        background: #ddd;
+        opacity: 0.5;
+        border-radius: 20px;
+        box-shadow: inset 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+.hover-menu{
+    list-style-type:none;
+}
+.hover-round-card {
+    color: aliceblue;
+    text-decoration: none;
+}
+    .hover-round-card:hover {
+        color: antiquewhite;
+        text-decoration: none;
+    }
+.hover-menu li em {
+    position: absolute;
+    font-family: 'HYRunYuan 65W';
+    font-size: 15px;
+    color: antiquewhite;
+    text-align: center;
+    padding: 20px 0px 10px;
+    font-style: normal;
+    z-index: 2;
+    display: none;
+}
+#card-yuan,#info-yuan {
+    position: absolute;
+    top: 13%;
+    left: 14%;
+}
+
+#card-tuan,#info-tuan {
+    position: absolute;
+    top: 28%;
+    left: 29%;
+}
+
+#card-fei,#info-fei {
+    position: absolute;
+    top: 13%;
+    left: 43%;
+}
+
+#card-qian, #info-qian {
+    position: absolute;
+    top: 28%;
+    left: 59%;
+}
+#card-meng, #info-meng {
+    position: absolute;
+    top: 13%;
+    left: 76%;
+}

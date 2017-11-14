@@ -1,0 +1,59 @@
+﻿.email{
+    position:relative;
+}
+
+#image_email{
+    position:absolute;
+    width:400px;
+    min-width:400px;
+}
+
+.email_content{
+    position:relative;
+    height:500px;
+}
+
+#email_head{
+    position:absolute;
+    left:3%;
+    font-size:23px;
+    color:#444;
+    top:12%;
+    min-width:400px;
+}
+
+#email_name{
+    position:absolute;
+    left:3%;
+    top:21%;
+    font-size:15px;
+    color:#444;
+    min-width:400px;
+}
+
+#email_token{
+    position:absolute;
+    left:3%;
+    top:26%;
+    font-size:23px;
+    color:#444;
+    min-width:400px;
+}
+
+#information_name{
+    position:absolute;
+    left:2%;
+    font-size:11px;
+    top:43%;
+    color:#888;
+    min-width:400px;
+}
+
+#information_about{
+    position:absolute;
+    left:2%;
+    top:48%;
+    font-size:11px;
+    min-width:400px;
+    color:#888;
+}

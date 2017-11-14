@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - ✨RandU</title>
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/forabout.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/forzone.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/forpersonal.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+</head>
+
+
+<body>
+
+    {% block flash %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% block page_content %}{% endblock %}
+    </div>
+    {% endblock %}
+    <div class="page-header">
+        <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">✨RandU</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('user') }}">首页</a></li>
+                    {% block navi %}{% endblock %}
+                    <li><a href="{{ url_for('about') }}">网站帮助</a></li>  
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+            {% block content %}{% endblock %}
+        <hr />
+        <footer>
+            <p>&copy; {{ year }} - RandU | Your Random Mail Application</p>
+        </footer>
+    </div>
+    
+    <!--debug space below-->
+    <div>
+        <ul class="nav navbar-nav">
+            <li><a href="{{ url_for('user') }}">用户首页</a></li>
+            <li><a href="{{ url_for('send') }}">寄信</a></li>
+            <li><a href="{{ url_for('receive') }}">收信</a></li>
+            <li><a href="{{ url_for('personal',username = current_user.username) }}">个人信息</a></li>
+            <li><a href="{{ url_for('zonesend',username = current_user.username) }}">zonesend</a></li>
+            <li><a href="{{ url_for('zonereceive',username = current_user.username) }}">zonereceive</a></li>
+            <li><a href="{{ url_for('logout') }}">登出</a></li>
+        </ul>
+    </div>
+    <!--debug space above-->
+
+
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    <script src="/static/scripts/area.js"></script>
+    <script src="/static/scripts/buttons.js"></script>
+    <script src="/static/scripts/forabout.js"></script>
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿{% extends "layout.html" %}
+<!---------------------------------------add to navi bar---------------->
+{% block navi %}
+
+<li><a href="{{ url_for('user') }}">用户首页</a></li>
+<li><a href="{{ url_for('zonesend',username = current_user.username) }}">收发记录</a></li>
+<li><a href="{{ url_for('personal',username = current_user.username) }}">个人信息</a></li>
+
+{% endblock %}
+
+<!---------------------------------------add to content---------------->
+
+{% block content %}{% endblock %}

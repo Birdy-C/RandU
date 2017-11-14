@@ -1,0 +1,35 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>✨RandU</h1>
+    <p class="lead">随机撒点式寄信|收信|交友|相亲平台：Only For Random You</p>
+    <p><a href="{{ url_for('about') }}" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+<script src="/static/scripts/area.js"></script>
+<div class="row">
+    <div class="col-md-4">
+	<form action="{{ url_for('login') }}" method="POST" name="login">
+		<h2>登录</h2>
+        <p>欢迎大家回来看看哇~o(*￣▽￣*)ブ</p>
+        <p>
+            邮箱:<br>
+            <input type="text" name="email" /><br>
+        </p>
+        <p>
+            密码:<br>
+            <input type="password" name="password" /><br>
+        </p>
+        <p>
+            <input type="checkbox" name="remember_me"/>Remember Me
+        </p>
+            {{ form.csrf_token }}  <!-- 这一行我也不知道是干嘛的 --> 
+			<p><input type="submit" value="Sign In"></p>
+			<p style="color:red">{{ info }}</p>
+			<a href="{{ url_for('register') }}">注册</a>
+    </form>
+
+
+</div>
+
+{% endblock %}

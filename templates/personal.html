@@ -1,0 +1,29 @@
+﻿{% extends "userlayout.html" %}
+
+{% block content %}
+
+<div class="layout-personal">
+    <div id="person-head">
+        <span id="head-avater">
+            <img src="../static/image/profile_picture.jpg" id="user-avatar" />
+        </span>
+        <span id="head-detail-name">
+            <lable id="user-name">{{name}}</lable>
+        </span>
+    </div>
+
+    <div class="head-detail-info">
+        <div class="user-item" id="user-gender">性别：{{gender}}</div>
+        <div class="user-item" id="user-email">邮箱：{{email}}</div>
+        <div class="user-item" id="user-addr">地址：{{addr}}</div>
+        <div class="user-item" id="user-information">个人信息：</div>
+        <div class="user-item" id="information">{{information}}</div>
+    </div>
+    <div>
+        <button id="change" type="button">修改</button>
+    </div>  
+
+</div>
+
+
+{% endblock %}

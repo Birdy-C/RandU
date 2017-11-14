@@ -1,0 +1,51 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+  <div class="col-md-4">
+      <form action="{{ url_for('register') }}" method="POST" name="login">
+          {{ form.csrf_token }}  
+          <h2>注册</h2>
+          <p>如果没有账号请先注册~O(∩_∩)O</p>
+          <div>
+              <p>
+                  <label>邮箱</label>
+                  <input type="email" id="aplyer_id_input" name="email" />
+              </p>
+              <p>
+                  <label>密码</label>
+                  <input type="password" id="aplyer_ps_input" name="password" />
+              </p>
+              <p>
+                  <label>确认密码</label>
+                  <input type="password" id="aplyer_ps_re_input" name="password2" />
+              </p>
+              <p>
+                  <label>昵称</label>
+                  <input type="text" name="username" />
+              </p>
+              <p>
+                  <label>性别</label>
+                  <label><input type="radio" id="aplyer_nan_input" name="gender" value="男" />男</label>
+                  <label><input type="radio" id="aplyer_nv_input" name="gender" value="女" />女</label>
+                  <label><input type="radio" id="aplyer_non_input" name="gender" value="保密" />保密</label>
+              </p>
+              <p id="area_choose">
+                  <label>地址</label>
+                  <select id="country" name="country"><option >国家</option></select>
+                  <select id="province" name="province"><option value='省份'>省份</option></select>
+                  <select id="city" name="city"><option value='城市'>城市</option></select>
+              </p>
+              <p>
+                  <label>具体地址</label>
+                  <input type="text" id="area" name ="moreaddress" />
+              </p>
+          </div>
+          <p><button type="submit">申请</button></p>
+      </form>
+</div>
+
+{% endblock %}

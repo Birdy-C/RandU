@@ -1,0 +1,52 @@
+﻿.error500{
+    position:relative;
+    height:550px;
+}
+
+#image500{
+    position:absolute;
+    right:35%;
+    width:30%;
+    top:15%;
+}
+
+#dialog500{
+    position:absolute;
+    right:40%;
+    top:35%;
+    font-family:HYZHUZITONGNIANTIW;
+    font-size:30px;
+    color:#c1a299;
+}
+
+.button500{
+    position:relative;
+    top:55%;
+    left:40%;
+}
+
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.red500 {
+	color: #fff;
+	border: solid 1px #c1a299;
+	background: #c1a299;
+	background: -webkit-gradient(linear, left top, left bottom, from(#c1a299), to(#c1a299));
+	background: -moz-linear-gradient(top,  #c1a299,  #c1a299);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}

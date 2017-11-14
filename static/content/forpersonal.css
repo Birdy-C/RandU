@@ -1,0 +1,79 @@
+﻿.layout-personal {
+    position:relative;
+}
+
+#person-head {
+    height:130px;
+    position: relative;
+}
+
+#head-avater {
+    position: absolute;
+}
+
+#user-avatar {
+    width: 128px;
+    position: absolute;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
+}
+
+.head-detail-name {
+    position: absolute;
+}
+
+#user-name{
+    position:absolute;
+    left:143px;
+    width:500px;
+    margin-bottom:10px;
+    font-size:30px;
+    text-shadow:1px 1px 1px rgba(0,0,0,.2);
+    color:#295c9d;
+}
+
+.head-detail-info {
+    height:250px;
+}
+
+.user-item {
+    position: absolute;
+}
+
+#user-gender {
+    position: absolute;
+    font-size: 20px;
+    width: 150px;
+    top: 150px;
+}
+
+#user-email{
+    position:absolute;
+    top:180px;
+    width:250px;
+    font-size:20px;
+}
+
+#user-addr{
+    position:absolute;
+    font-size:20px;
+    top:210px;
+    width:150px;
+}
+
+#user-information{
+    position:absolute;
+    top:240px;
+    font-size:20px;
+    width:500px;
+}
+
+#information{
+    position:absolute;
+    top:270px;
+    font-size:20px;
+    width:1000px;
+}
+
+#change{
+    width:50px;
+}

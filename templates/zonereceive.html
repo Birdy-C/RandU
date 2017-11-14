@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{user_name}}的藏信间</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/forzone.css" />
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    <script src="/static/scripts/moment.js"></script>
+    <script src="/static/scripts/forzone.js"></script>
+</head>
+
+<body id="zone-receive-back">
+    <!--导航栏部分的重写-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">✨RandU</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('login') }}">首页</a></li>
+                    <li><a href="{{ url_for('user') }}">用户首页</a></li>
+                    <li><a href="{{ url_for('zonesend',username=current_user.username) }}">收发记录</a></li>
+                    <li><a href="{{ url_for('personal',username=current_user.username) }}">个人信息</a></li>
+                    <li><a href="{{ url_for('about') }}">网站帮助</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--主体部分-->
+    <div class="container body-content">
+        <div class="container">
+            <header class="codrops-header">
+                <h1 id="receive-title">{{current_user.username}}的藏信间</h1>
+                <nav class="codrops-demos">
+                    <a href="/zonesend">
+                        <div id="receive-bird-frame"></div>
+                    </a>
+                    <a class="current-demo" href="/zonereceive">
+                        <div id="receive-kangroo-frame"></div>
+                    </a>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+
+    <!--写说说的框-->
+    <div id="write-new-show">
+        <div id="write-new-label">
+            <label>发布新记录</label>
+        </div>
+        <div>
+            <form action="{{ url_for('zonereceive',username=current_user.username)}}" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <!--发说说的表单-->
+                <!--这里团团原来用的是text和它的value，但是text只支持单行输入，而且不能换行，
+                所以现在改成了textarea，没有value属性了，（可能会出一点问题）-->
+                <textarea class="state-box" id="new-show-text" name="body">😋收到信就要高兴地写点什么</textarea>
+                <img id="new-show-img" />
+                <input type="file" name="file" accept=".png,.jpg" id="new-show-file" />
+                <input type="submit" value="发表" id="new-show-submit" />
+            </form>
+        </div>
+    </div>
+
+    <!--展示栏-->
+    <div id="user-posts">
+        <ul class="posts">
+            {% for post in posts %}
+            <li class="post">
+                <div class="post-content">
+                    <div class="post-date">
+                        {{ post.timestamp }}
+                    </div>
+                    <div class="post-author">
+                        <a href="{{ url_for('.user', username=post.author.username)}}">
+                            {{ post.author.username }}
+                        </a>
+                    </div>
+                    <div class="post-body">
+                        {{ post.body }}
+                    </div>
+                    <div class="post-img">
+                        <img src="" />
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!--尾部-->
+    <div>
+        <hr />
+        <footer>
+            <p class="center-text">&copy; {{ year }} - RandU | Your Random Mail Application</p>
+        </footer>
+    </div>
+    <script src="/static/scripts/jquery-1.10.2.js"></script>
+    <script src="/static/scripts/bootstrap.js"></script>
+    <script src="/static/scripts/respond.js"></script>
+    <script src="/static/scripts/forzone.js"></script>
+</body>
+</html>

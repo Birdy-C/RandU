@@ -1,0 +1,48 @@
+﻿{% extends "userlayout.html" %}
+
+{% block content %}
+
+<!--选择条件模块，提交以后链接到zonesend -->
+<div>
+    <form id="choose-u-form" action="{{ url_for('???') }}" method="POST" name="???">
+        <div id="choose-u-address">
+            <label>对方地址要求</label>
+            <label><input type="radio" id="choose_near_rd" name="choose_area_rd" value="附近" />附近</label>
+            <label><input type="radio" id="choose_mid_rd" name="choose_area_rd" value="全国" />全国</label>
+            <label><input type="radio" id="choose_far_rd" name="choose_area_rd" value="全宇宙" />全宇宙</label>
+        </div id="choose-u-gender">
+        <div>
+            <label>对方性别要求</label>
+            <label><input type="radio" id="choose_nan_rd" name="choose_sex_rd" value="男" />男</label>
+            <label><input type="radio" id="choose_nv_rd" name="choose_sex_rd" value="女" />女</label>
+            <label><input type="radio" id="choose_non_rd" name="choose_sex_rd" value="随便" />随便</label>
+        </div>
+        <div id="choose-u-button">
+            <input type="submit" id="want_send_bt" value="我真的要寄信了！！">
+        </div>
+    </form>
+</div>
+
+<!--分发地址模块
+<div id="match_module">
+    <div hidden="hidden">
+        <p>
+            <label> 为您配对的对方信息</label>
+        </p>
+        <p>
+
+            <label>用户名</label>
+        </p>
+        <p>
+
+            <label>性别</label>
+        </p>
+        <p>
+
+            <label>地址</label>
+        </p>
+        <a href="zonesend.html">马上寄信</a>
+    </div>
+</div>-->
+
+{% endblock %}
