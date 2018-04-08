@@ -31,11 +31,12 @@ class User(UserMixin, app.db.Model):
     moreaddress=app.db.Column(app.db.String(64))#详细地址
     power=app.db.Column(app.db.Integer)#用户权限：0超级管理员，1管理员，2普通用户
     introduction=app.db.Column(app.db.String(100))#个人介绍
-    gender = app.db.Column(app.db.Integer)#性别：0男，1女
+    gender = app.db.Column(app.db.String(8))#性别：0男，1女
+    money = app.db.Column(app.db.Integer)#性别：0男，1女
 
 
     posts=app.db.relationship('Post',backref='author',lazy='dynamic')
-
+    letters=app.db.relationship('Letter',backref='letteraddto',lazy='dynamic')
 
     def __init__(self, email):
         self.email = email
@@ -127,9 +128,11 @@ class User(UserMixin, app.db.Model):
 class Letter(app.db.Model):#信表
     __tablename__='letters'
     id = app.db.Column(app.db.Integer, primary_key=True)#信ID
-    addfrom=app.db.Column(app.db.String(64))#寄信方
-    addto=app.db.Column(app.db.String(64))#收信方
+#    addfrom=app.db.Column(app.db.Integer,app.db.ForeignKey('users.id'))#寄信方
+    addto=app.db.Column(app.db.Integer,app.db.ForeignKey('users.id'))#收信方
+    addfrom=app.db.Column(app.db.Integer)#寄信方
     nowstate=app.db.Column(app.db.Integer)#信的状态：0在路上，1已到达
+    timestamp=app.db.Column(app.db.String(10),index=True,default=datetime.utcnow)#生成的时间
     def __repr__(self):
         return '<User %r>' % self.id
 
@@ -137,5 +140,12 @@ class Post(app.db.Model):
     __tablename__='posts'
     id=app.db.Column(app.db.Integer,primary_key=True)
     body=app.db.Column(app.db.Text)#动态内容本体
-    timestamp=app.db.Column(app.db.DateTime,index=True,default=datetime.utcnow)
+    file = app.db.Column(app.db.Text)
+    timestamp=app.db.Column(app.db.String(10),index=True,default=datetime.utcnow)
     author_id=app.db.Column(app.db.Integer,app.db.ForeignKey('users.id'))
+
+class Picture(app.db.Model):
+    __tablename__='picture'
+    id = app.db.Column(app.db.Integer,primary_key=True)
+    user_id = app.db.Column(app.db.Integer)
+    pic_id = app.db.Column(app.db.Integer)

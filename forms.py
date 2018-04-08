@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 # forms.py
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, PasswordField, SubmitField
+from wtforms import StringField, BooleanField, PasswordField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
 from wtforms.validators import Required, Length, Email, Regexp, EqualTo
 from wtforms import ValidationError
@@ -68,4 +68,24 @@ class ChangePasswordForm(FlaskForm):
 
 class PostForm(FlaskForm):
     body=StringField("What's on your mind?", validators=[Required()])
+    file = StringField('picture_place')
+    submit = SubmitField('new show submit')
+
+
+class ReceiveForm(FlaskForm):
+    mail_ID=IntegerField("Your mail ID", validators=[Required()])
+    submit = SubmitField('mail ID submit')
+
+
+class EmailForm(FlaskForm):
+    choose_area_rd=StringField("choose_area_rd?", validators=[Required()])
+    choose_sex_rd = StringField('choose_sex_rd')
+    submit = SubmitField('new show submit')
+
+class Search(FlaskForm):
+    search = StringField('search')
+    submit = SubmitField('new show submit')
+
+class UserForm(FlaskForm):
+    user = StringField('user')
     submit = SubmitField('new show submit')

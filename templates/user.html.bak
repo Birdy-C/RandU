@@ -1,0 +1,105 @@
+﻿{% extends "userlayout.html" %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="/static/content/foruser.css" />
+<link rel="stylesheet" type="text/css" href="/static/content/foruser2.css" />
+{% endblock %}
+{% block content %}
+
+<div id="user-main-bt">
+    <div class="cotn_principal">
+        <div class="cont_centrar">
+            <div class="cont_login">
+                <div class="cont_info_log_sign_up">
+                    <div class="col_md_login">
+                        <div class="cont_ba_opcitiy">
+                            <h2>我要寄信</h2>
+                            <p>I want send a letter/postcard/etc to random one.</p>
+                            <button class="btn_login" onClick="cambiar_login()">我要寄信</button>
+                        </div>
+                    </div>
+                    <div class="col_md_sign_up">
+                        <div class="cont_ba_opcitiy">
+                            <h2>确认收信</h2>
+                            <p>I want to acknowledge that I receive a letter from others.</p>
+                            <button class="btn_sign_up" onClick="cambiar_sign_up()">确认收信</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_back_info">
+                    <div class="cont_img_back_grey"> <img src="/static/image/po.jpg" alt="" /> </div>
+                </div>
+                <div class="cont_forms">
+                    <div class="cont_img_back_"> <img src="/static/image/po.jpg" alt="" /> </div>
+                    <div class="cont_form_login">
+                        <a href="#" onClick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                        <h2>我要寄信</h2>
+
+
+                        <div>
+                            <form id="choose-u-form" action="{{ url_for('zonesend', username=current_user.username) }}" method="POST" name="form">
+							
+                                <div id="choose-u-item" class="choose-item"> 
+                                    <label class="choose-u-lb">对方地址要求</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_near_rd" name="choose_area_rd" value="附近" />附近</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_mid_rd" name="choose_area_rd" value="全国" />全国</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_far_rd" name="choose_area_rd" value="全宇宙" />全宇宙</label>
+                                </div>
+                                <div class="choose-item">
+                                    <label class="choose-u-lb">对方性别要求</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_nan_rd" name="choose_sex_rd" value="男" />男</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_nv_rd" name="choose_sex_rd" value="女" />女</label>
+                                    <label class="choose-u-lb"><input type="radio" id="choose_non_rd" name="choose_sex_rd" value="随便" />随便</label>
+                                </div>
+                                <div id="choose-u-button">
+                                    <button class="btn_login" type="submit" id="want_send_bt" href="{{ url_for('zonesend', username=current_user.username) }}">我要寄信</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <div class="cont_form_sign_up">
+                        <a href="#"  onClick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                        <h2>确认收信</h2>
+
+
+                        <!--我要登记模块，提交以后链接到zonereceive -->
+                        <div>
+                            <form2 id="receive-form" action="{{ url_for('zonereceive' , username=current_user.username)  }}" method="POST" name="form2">
+
+                                <div id="receive-id" class="choose-item">
+                                    <label class="choose-u-lb">信的ID</label>
+                                    <input type="number" id="put-u-id" name="xxxxxxxxxxxxx" />
+                                </div>
+                                <div id="receive-button">
+                                    <button class="btn_sign_up" id="receive_bt" href="{{ url_for('zonereceive' , username=current_user.username)  }}">确认收信</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div id="user-choose-act">
+    <div id="i-want-send-a">
+        <a href="{{ url_for('send',username=current_user.username) }}">我要寄信</a>
+    </div>
+    <div id="i-have-receive-a">
+        <a href="{{ url_for('receive',username=current_user.username) }}">确认收信</a>
+    </div>
+</div>
+-->
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/static/scripts/foruser.js"></script>
+{% endblock %}

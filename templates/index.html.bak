@@ -1,0 +1,100 @@
+﻿{% extends "layout.html" %}
+
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="/static/content/login.css">
+{% endblock %}
+
+{% block content %}
+<!--大标题-->
+<div class="jumbotron" id="our-jumb">
+    <h1 id="main-title">✨RandU</h1>
+    <p><a href="{{ url_for('about') }}" class="btn btn-primary btn-large" id="jumb-button-to-about">Learn more &raquo;</a></p>
+    <p class="lead" id="our-jumb-lead">随机撒点式寄信|收信|交友|相亲平台</p>
+    <button type="button" id="shift-pic1"></button>
+    <button type="button" id="shift-pic2"></button>
+</div>
+
+
+<!--登陆背面（使用了模板）-->
+<div class="htmleaf-container">
+    <div class="wrapper">
+        
+
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    $('#login-button').click(function (event) {
+        event.preventDefault();
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+    });
+</script>
+<!--登录框-->
+<div class="log-container">
+    <h1>Welcome</h1>
+    <form class="log-form" action="{{ url_for('login') }}" method="POST" name="login">
+        <input class="home-beautiful-input" type="text" name="email" placeholder="Username">
+        <input class="home-beautiful-input" type="password" name="password" placeholder="Password">
+        <div id="checkme-part">
+            <div id="little-checkbox" style="left: 0px;">
+                <input name="remember_me" id="home-checkbox" type="checkbox">
+            </div>
+            <div id="check-text">
+                Remember me
+            </div>
+        </div>
+        {{ form.csrf_token }}
+        <button type="submit" id="login-button">登录</button>
+        <!--<p><input type="submit" id="login-button" value="Sign In"></p>-->
+        <p style=" color:red">{{ info }}</p>
+        <button id="sign-button" href="{{ url_for('register') }}">注册</button>
+    </form>
+</div>
+<!--原来的登陆
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="{{ url_for('login') }}" method="POST" name="login">
+            <h2>登录</h2>
+            <p>欢迎大家回来看看哇~o(*￣▽￣*)ブ</p>
+            <p>
+                邮箱:<br>
+                <input type="text" name="email" /><br>
+            </p>
+            <p>
+                密码:<br>
+                <input type="password" name="password" /><br>
+            </p>
+            <p>
+                <input type="checkbox" name="remember_me" />Remember Me
+            </p>
+            {{ form.csrf_token }}  <!-- 这一行我也不知道是干嘛的 --
+            <p><input type="submit" value="Sign In"></p>
+            <p style="color:red">{{ info }}</p>
+            <a href="{{ url_for('register') }}">注册</a>
+        </form>
+    </div>
+</div>
+-->
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/static/scripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="/static/scripts/forindex.js" type="text/javascript"></script>
+{% endblock %}

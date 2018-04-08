@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>{{user_name}}的藏信间</title>
+    <title>{{user.username}}的藏信间</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/static/content/forzone.css" />
@@ -30,11 +30,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('login') }}">首页</a></li>
-                    <li><a href="{{ url_for('user') }}">用户首页</a></li>
                     <li><a href="{{ url_for('zonesend',username=current_user.username) }}">收发记录</a></li>
                     <li><a href="{{ url_for('personal',username=current_user.username) }}">个人信息</a></li>
                     <li><a href="{{ url_for('about') }}">网站帮助</a></li>
                 </ul>
+            </div>
+            <div class="hello-user" id="logout">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('logout')}}">登出</a>
+                {% else %}请登录或注册{% endif %}
             </div>
         </div>
     </div>
@@ -43,12 +47,12 @@
     <div class="container body-content">
         <div class="container">
             <header class="codrops-header">
-                <h1 id="receive-title">{{current_user.username}}的藏信间</h1>
+                <h1 id="receive-title">{{user.username}}的藏信间</h1>
                 <nav class="codrops-demos">
-                    <a href="/zonesend">
+                    <a href="{{url_for('zonesend',username=current_user.username)}}">
                         <div id="receive-bird-frame"></div>
                     </a>
-                    <a class="current-demo" href="/zonereceive">
+                    <a class="current-demo" href="{{ url_for('zonereceive',username=current_user.username)}}">
                         <div id="receive-kangroo-frame"></div>
                     </a>
                 </nav>
@@ -57,27 +61,38 @@
     </div>
 
 
+
     <!--写说说的框-->
     <div id="write-new-show">
         <div id="write-new-label">
             <label>发布新记录</label>
         </div>
         <div>
-            <form action="{{ url_for('zonereceive',username=current_user.username)}}" method="POST" enctype="multipart/form-data">
-                {{ form.hidden_tag() }}
-                <!--发说说的表单-->
-                <!--这里团团原来用的是text和它的value，但是text只支持单行输入，而且不能换行，
-                所以现在改成了textarea，没有value属性了，（可能会出一点问题）-->
+            <form id="show-form" action="{{ url_for('zonereceive',username=current_user.username)}}" method="POST" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <!--发说说的框-->
                 <textarea class="state-box" id="new-show-text" name="body">😋收到信就要高兴地写点什么</textarea>
                 <img id="new-show-img" />
                 <input type="file" name="file" accept=".png,.jpg" id="new-show-file" />
                 <input type="submit" value="发表" id="new-show-submit" />
             </form>
+            <lable id="text-count"></lable>
         </div>
+        <div id="write-new-bottom"></div>
     </div>
+
+
 
     <!--展示栏-->
     <div id="user-posts">
+        <!--搜索栏-->
+        <div id="search-part">
+            <form id="search-form" action="{{ url_for('zonereceive',username=current_user.username)}}" method="POST" enctype="multipart/form-data" name="form1">
+                {{ form1.csrf_token }}
+                <input type="text" id="search-input" name="search" placeholder="🍭输入关键词" />
+                <input type="submit" value="查找" id="search-submit" />
+            </form>
+        </div>
         <ul class="posts">
             {% for post in posts %}
             <li class="post">
@@ -94,7 +109,12 @@
                         {{ post.body }}
                     </div>
                     <div class="post-img">
-                        <img src="" />
+                        {%if post.file == None  %}
+                        {%else %}
+                        <a href="{{ url_for('get_pic' , pic_id = post.id)}}">
+                            <img class="post-img-inside" src=" ../static/image_receive/{{post.file}}.png" >
+                        </a>
+                        {%endif%}
                     </div>
                 </div>
             </li>

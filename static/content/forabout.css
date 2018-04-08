@@ -1,5 +1,11 @@
 ﻿body {
     background-color: #d7c9c9;
+    background: linear-gradient(top, #dde6e8,#d7c9c9);
+    background: -moz-linear-gradient(top,#dde6e8,#d7c9c9); /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#dde6e8), to(#d7c9c9)); /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dde6e8), to(#d7c9c9)); /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #dde6e8, #d7c9c9); /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #dde6e8, #d7c9c9); /*Opera 11.10+*/
 }
 .center-title {
     font-family: HYQiHei-105JF;
@@ -43,6 +49,9 @@
         left: -6px;
         right: -6px;
         background: linear-gradient(to left, #cec1c1, #e6e6e6, #d7c9c9);
+        background: -moz-linear-gradient(to left, #cec1c1, #e6e6e6, #d7c9c9);
+        background: -webkit-gradient(to left, #cec1c1, #e6e6e6, #d7c9c9);
+        background: -o-linear-gradient(to left, #cec1c1, #e6e6e6, #d7c9c9);
         box-shadow: 3px 5px 25px #806f61;
         content: '';
         z-index: -1;
@@ -55,8 +64,9 @@
     border-bottom: 2px solid #666;
     margin-bottom:50px;
 }
-#team-part{
-    position:relative;
+#team-part {
+    position: relative;
+    
 }
 
 #team-pic {
@@ -68,16 +78,32 @@
     border-width: 4px;
     border-color: #dddddd;
     border-radius: 50px;
+    opacity: 1;
+    z-index: 0;
 }
 
-.hover-round-card {
-    position:absolute;
-    font-family: STZHONGS;
-    font-size: 20px;
-    color: white;
-    width: 300px;
-    height: 50px;
+#team-pic1 {
+    position: absolute;
+    max-width: 80%;
+    box-shadow: inset 0px 0px 18px white;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #dddddd;
+    border-radius: 50px;
+    opacity: 0;
+    z-index:0;
 }
+
+    .hover-round-card {
+        position: absolute;
+        font-family: STZHONGS;
+        font-size: 20px;
+        color: white;
+        width: 300px;
+        height: 50px;
+    }
 
     .hover-round-card::before {
         top: -3px;
@@ -153,4 +179,7 @@
     position: absolute;
     top: 13%;
     left: 76%;
+}
+footer {
+    text-align: center;
 }

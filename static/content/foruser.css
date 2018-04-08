@@ -1,0 +1,36 @@
+#user-choose-act {
+    position:relative;
+    width: 100%;
+    left: 0px;
+    top: 50px;
+    height: 100%;
+}
+#i-want-send-a {
+    position: absolute;
+    width: 50%;
+    left: 0px;
+    top: 0;
+    height: 100%;
+}
+
+#i-have-receive-a {
+    position: absolute;
+    width: 50%;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+.choose-u-rad{
+    margin:5px;
+    font-size:18px;
+    text-align:center;
+}
+.choose-u-lb {
+    font-size: 19px;
+    color: rgba(79, 39, 39, 1);
+    margin:5px;
+}
+
+.choose-item {
+    margin: 20px;
+}

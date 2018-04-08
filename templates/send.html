@@ -4,7 +4,7 @@
 
 <!--选择条件模块，提交以后链接到zonesend -->
 <div>
-    <form id="choose-u-form" action="{{ url_for('???') }}" method="POST" name="???">
+    <form id="choose-u-form" action="{{ url_for('send',username=current_user.username) }}" method="POST" name="send-form">
         <div id="choose-u-address">
             <label>对方地址要求</label>
             <label><input type="radio" id="choose_near_rd" name="choose_area_rd" value="附近" />附近</label>

@@ -1,0 +1,462 @@
+/*这个是来自http://www.html5tricks.com/的风车模板和登录框模板*/
+/*作了修改*/
+
+.sun {
+  z-index:100;
+  width:40px;
+  height:40px;
+  border-radius:360px;
+  background:white;
+  right:140px;
+  top:-100px;
+  position:absolute;
+  transition:background-color 1s;
+  	animation-name: sunrise;
+	  animation-duration: 1s;
+	  animation-timing-function: ease;
+	  animation-iteration-count: 1;	
+	  animation-direction: normal;
+	  animation-delay: 0.1s;
+	  animation-play-state: running;
+	  animation-fill-mode: forwards;
+}
+    .sun:hover {
+        background-color: rgba(255, 220, 0, 0.8);
+    }
+@keyframes sunrise {
+
+	0% {
+		  top: 60px;
+	}
+  
+25% {
+  top:100px;
+  right: 140px;
+	}
+ 
+50% {
+  top:105px;
+  right: 140px;
+	}
+
+100% {
+  top:98px;
+  right: 140px;
+	}
+
+}
+
+
+.wmd1 {
+    -webkit-transform: scale(0.6);
+    position: absolute;
+    top: 150px;
+    left: -30px;
+    perspective: 1000px;
+}
+
+
+.base{ }
+
+
+
+.blades {
+    width: 350px;
+    height: 350px;
+    left: 10%;
+    top: 10%;
+    z-index: 2;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 50px;
+    -webkit-animation: spin 6s linear infinite;
+    -webkit-animation-play-state: paused;
+    animation: spin 6s linear infinite;
+    animation-play-state: paused;
+}
+
+    .blades:hover {
+        -webkit-animation-play-state: running;
+        animation-play-state: running;
+    }
+
+.blade1 {
+    background: white;
+    position: absolute;
+    width: 41px;
+    height: 139px;
+    top: -10px;
+    left: 150.5px;
+    transform:rotate(0deg);
+    display: inline-block;
+    background: linear-gradient(135deg, transparent 20px, white 0), linear-gradient(225deg, transparent 20px, white 0), linear-gradient(315deg, transparent 20px, white 0), linear-gradient(45deg, transparent 20px, white 0);
+    background-position: top left, top right, bottom right, bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+
+
+.blade2 {
+  		background:white;
+  position:absolute;
+	  width:41px;
+	  height:139px;
+  top:105.5px;
+  left:41px;
+  transform:rotate(-90deg);
+  display:inline-block;
+  background:
+    linear-gradient(135deg, transparent 20px, white 0),
+    linear-gradient(225deg, transparent 20px, white 0),
+    linear-gradient(315deg, transparent 20px, white 0),
+    linear-gradient(45deg, transparent  20px,  white 0);
+  background-position: top left, top right, bottom right, bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.blade3 {
+  		background:white;
+  position:absolute;
+	  width:41px;
+	  height:139px;
+  top:105.5px;
+  right:41px;
+  transform:rotate(-270deg);
+  display:inline-block;
+  background:
+    linear-gradient(135deg, transparent 20px, white 0),
+    linear-gradient(225deg, transparent 20px, white 0),
+    linear-gradient(315deg, transparent 20px, white 0),
+    linear-gradient(45deg, transparent  20px,  white 0);
+  background-position: top left, top right, bottom right, bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.blade4 {
+  		background:white;
+  position:absolute;
+	  width:41px;
+	  height:139px;
+  bottom:-10px;
+  left:150.5px;
+  transform:rotate(180deg);
+  display:inline-block;
+  background:
+    linear-gradient(135deg, transparent 20px, white 0),
+    linear-gradient(225deg, transparent 20px, white 0),
+    linear-gradient(315deg, transparent 20px, white 0),
+    linear-gradient(45deg, transparent  20px,  white 0);
+  background-position: top left, top right, bottom right, bottom left;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.vane1{
+  width:1px;
+  height:350px;
+  left:175px;
+  background:white;
+  position:absolute;
+  transform:rotate(90deg);
+}
+
+.vane2{
+  width:1px;
+  height:350px;
+  left:171.5px;
+  background:white;
+  position:absolute;
+  transform:rotate(180deg);
+}
+
+.base .bottom_base{
+  position:absolute;
+  width:90px;
+  height:100px;
+  left:162px;
+  border-right: 16px solid transparent;
+  border-left: 16px solid transparent;
+  border-bottom: 380px solid white;
+  opacity:.8;
+  z-index:-1;
+  top:42.5px;
+  transition:border-bottom-color 1s;
+}
+    .base .bottom_base:hover {
+        border-bottom-color: pink;
+    } 
+    
+    
+    .bottom_base ul {
+        position: absolute;
+        top: 180px;
+        left: -30px;
+    }
+.bottom_base li {
+    width: 10px;
+    height: 10px;
+    background: white;
+    padding: 2px;
+    display: block;
+    margin: 30px;
+    box-shadow: inset 0px -2px 0px lightgray;
+}
+
+.bottom_base li:nth-child(2) {
+    position: absolute;
+    top: -45px;
+    left: 20px;
+}
+
+.bottom_base li:nth-child(1) {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+}
+
+.bottom_base li:nth-child(3) {
+    position: absolute;
+    top: 75px;
+    left: 50px;
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.windmills {
+    position: absolute;
+    left: 10%;
+    bottom: 0%;
+    height: 500px;
+    width: 300px;
+}
+
+
+/*登录框模板用来当注册框，名字login啥的都改成了sign*/
+.sign-form-content {
+    width: 600px;
+    margin: 50px auto 10px auto;
+    margin-top: 100px;
+}
+
+
+.sign-form {
+    width: 400px;
+    height: 530px;
+    margin: 70px auto 0;
+    padding-top: 73px;
+    position: relative;
+    background-color: rgba(243, 230, 200, 0.3);
+    border-radius: 5px;
+    background-image: linear-gradient(top,rgb(255,255,255),rgb(242,242,242));
+    box-shadow: 0px 10px 20px rgba(21,62,78,0.8);
+}
+
+
+
+
+.not-registered {
+    position: absolute;
+    color: rgb(153,153,153);
+    font-weight: bold;
+    font-size: 13px;
+    top: calc(100% + 20px);
+    background-color: rgb(255,255,255);
+    width: 400px;
+    height: 46px;
+    margin: 0 auto;
+    line-height: 46px;
+    text-align: center;
+    box-shadow: 0 3px 3px rgba(21,62,78,0.8);
+}
+
+    .not-registered a {
+        margin-left: 5px;
+        text-decoration: none;
+        color: rgb(52,119,182);
+        cursor: pointer;
+    }
+
+.sign-item {
+    width: 260px;
+    height: 28px;
+    margin: 20px auto;
+    margin-left: 84px;
+    position: relative;
+    line-height: 28px;
+    border: none;
+    padding-right:;
+}
+
+.sign-form .user-icon, .sign-form .password-icon, .sign-form .gender-icon, .sign-form .area-icon {
+    display: inline-block;
+    font-family: "signform-icon";
+    font-size: 15px;
+    text-align: center;
+    line-height: 28px;
+    color: rgb(153, 153, 153);
+    position: absolute;
+    left: -40px;
+    top: 4px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-right: 1px solid rgb(229,229,232);
+   
+    height: 28px;
+    transition: all 300ms linear;
+}
+
+
+.sign-form .user-icon, .sign-form .password-icon {
+    width: 30px;
+}
+    .sign-form .username input, .sign-form .password input {
+        height: 100%;
+        width: calc(100% - 40px);
+        padding-left: 40px;
+        border-radius: 2px;
+        border: 1px solid;
+        border-color: rgb(229,229,232) rgb(220,220,221) rgb(213,213,213) rgb(220,220,221);
+        display: block;
+        transition: all 300ms linear;
+    }
+
+
+.sign-form .icon:before, .sign-form .icon:after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-left-color: rgb(255,255,255);
+}
+.sign-form .gender-icon::before, .sign-form .area-icon::before {
+    left: 60px;
+}
+.sign-form .gender-icon::after, .sign-form .area-icon::after {
+    left: 60px;
+}
+
+.sign-form .icon:before {
+    top: 9px;
+    border: 5px solid transparent;
+    border-left-color: rgb(229,229,232);
+}
+
+.sign-form .username input:focus, .sign-form .password input:focus {
+    border-color: rgb(69,153,228);
+    box-shadow: 0 0 2px 1px rgb(200,223,244);
+}
+
+    .sign-form .username input:focus + span, .sign-form .password input:focus + span {
+        background: linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
+        color: rgb(51,51,51);
+    }
+
+        .sign-form .username input:focus + span:after, .sign-form .password input:focus + span:after {
+            border-left-color: rgb(250,250,250);
+        }
+
+.sign-form .account-control label {
+    margin-left: 24px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.sign-form button[type='submit'] {
+    font-size: 15px;
+    color: white;
+    border-radius: 4px;
+    background-color: rgba(41, 92, 157, 1);
+    font-family: "HYRunYuan 65W";
+    text-align: center;
+    border: 1px solid rgb(255,255,255);
+    border-top-width: 2px;
+    width: 300px;
+    height: 36px;
+    position: relative;
+    box-shadow: inset 0px 1px 0px rgb(86,174,251);
+    text-shadow: 0px 1px 1px rgb(51,113,173);
+    transition: all 200ms linear;
+    left: -36px;
+    margin-top: 8px;
+    /*background: linear-gradient(top,rgb(74,162,241),rgb(52,119,182)) 1px 0 no-repeat;
+    background: -moz-linear-gradient(top,rgb(74,162,241),rgb(52,119,182)) 1px 0 no-repeat;
+    background: -webkit-linear-gradient(top,rgb(74,162,241),rgb(52,119,182)) 1px 0 no-repeat;
+    background: -o-linear-gradient(top,rgb(74,162,241),rgb(52,119,182)) 1px 0 no-repeat;
+    background: -webkit-gradient(top,rgb(74,162,241),rgb(52,119,182)) 1px 0 no-repeat;
+    border: none;
+    border-top: 1px solid rgb(52,118,181);
+    border-radius: 2px;*/
+}
+
+
+
+    .sign-form button[type='submit']:hover {
+        text-shadow: 0px 0px 2px rgb(255,255,255);
+        box-shadow: inset 0px 1px 0px rgb(86,174,251), 0px 0px 5px 3px rgba(74,162,241,0.5);
+    }
+
+
+.sign-form .account-control input {
+    width: 0px;
+    height: 0px;
+}
+
+.sign-form label.check {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin: -8px 0;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 2px;
+    background: linear-gradient(top,rgb(255,255,255),rgb(246,246,246)) 1px 1px no-repeat, linear-gradient(top,rgb(227,227,230),rgb(165,165,165)) left top no-repeat;
+    background-size: 14px 14px,16px 16px;
+}
+
+.sign-form .account-control input:checked + label.check:before {
+    content: attr(data-on);
+    font-family: signform-icon;
+}
+.gender-icon,.area-icon{
+    width:60px;
+}
+
+
+
+@font-face {
+    font-family: 'signform-icon';
+    src: url("../fonts/signform-icon.eot");
+    src: url("../fonts/signform-icon.eot?#iefix") format('embedded-opentype'), url("../fonts/signform-icon.woff") format('woff'), url("../fonts/signform-icon.ttf") format('truetype'), url("../fonts/signform-icon.svg#signform-icon") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

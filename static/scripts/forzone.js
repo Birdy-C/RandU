@@ -73,6 +73,16 @@ window.onload = function () {
         //};
         //fr.readAsDataURL(imgFile);
     })*/
+
+
+
+    //user-posts的高度变化
+    var h = 110 * $('#user-posts').find("li").length;
+    var sh = (h + 70).toString() + 'px';
+    $('#user-posts')[0].style.height = sh;
+
+
+
 }
 
 //function e(){

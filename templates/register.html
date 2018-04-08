@@ -1,51 +1,184 @@
 ﻿{% extends "layout.html" %}
 
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="/static/content/forregister.css" />
+<link rel="stylesheet" type="text/css" href="/static/content/forsignwdml.css" />
+{% endblock %}
+
 {% block content %}
+<div id="register-body">
+    <h2 class="center-title">- {{ title }} -</h2>
+    <h3 class="center-sub-title">{{ message }}</h3>
 
-<h2>{{ title }}.</h2>
-<h3>{{ message }}</h3>
+    <!-- the windmill -->
+    <div class="sun"></div>
+    <div class="windmills">
+        <div class="wmd1">
+            <div class="blades">
+                <div class="blade2"></div>
+                <div class="blade1"></div>
+                <div class="vane1"></div>
+                <div class="blade3"></div>
+                <div class="blade4"></div>
+                <div class="vane2"></div>
+            </div>
+            <div class="base">
+                <div class="bottom_base">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
 
-  <div class="col-md-4">
-      <form action="{{ url_for('register') }}" method="POST" name="login">
-          {{ form.csrf_token }}  
-          <h2>注册</h2>
-          <p>如果没有账号请先注册~O(∩_∩)O</p>
-          <div>
-              <p>
-                  <label>邮箱</label>
-                  <input type="email" id="aplyer_id_input" name="email" />
-              </p>
-              <p>
-                  <label>密码</label>
-                  <input type="password" id="aplyer_ps_input" name="password" />
-              </p>
-              <p>
-                  <label>确认密码</label>
-                  <input type="password" id="aplyer_ps_re_input" name="password2" />
-              </p>
-              <p>
-                  <label>昵称</label>
-                  <input type="text" name="username" />
-              </p>
-              <p>
-                  <label>性别</label>
-                  <label><input type="radio" id="aplyer_nan_input" name="gender" value="男" />男</label>
-                  <label><input type="radio" id="aplyer_nv_input" name="gender" value="女" />女</label>
-                  <label><input type="radio" id="aplyer_non_input" name="gender" value="保密" />保密</label>
-              </p>
-              <p id="area_choose">
-                  <label>地址</label>
-                  <select id="country" name="country"><option >国家</option></select>
-                  <select id="province" name="province"><option value='省份'>省份</option></select>
-                  <select id="city" name="city"><option value='城市'>城市</option></select>
-              </p>
-              <p>
-                  <label>具体地址</label>
-                  <input type="text" id="area" name ="moreaddress" />
-              </p>
-          </div>
-          <p><button type="submit">申请</button></p>
-      </form>
+            <div class="wmd1">
+                <div class="blades">
+                    <div class="blade2"></div>
+                    <div class="blade1"></div>
+                    <div class="vane1"></div>
+                    <div class="blade3"></div>
+                    <div class="blade4"></div>
+                    <div class="vane2"></div>
+                </div>
+                <div class="base">
+                    <div class="bottom_base">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wmd1">
+                    <div class="blades">
+                        <div class="blade2"></div>
+                        <div class="blade1"></div>
+                        <div class="vane1"></div>
+                        <div class="blade3"></div>
+                        <div class="blade4"></div>
+                        <div class="vane2"></div>
+                    </div>
+                    <div class="base">
+                        <div class="bottom_base">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="sign-form-content">
+        <form action="{{ url_for('register') }}" class="sign-form" method="POST" name="login">
+            {{ form.csrf_token }}
+            <div class="put-on-head">
+                <img id="uhead"  src="../static/image/defaultHead.jpg" />
+            </div>
+            <div id="put-on-head-button">
+                <input type="file" accept=".png,.jpg" id="put-on-head-label" />
+                上传头像
+            </div>
+            <div class="sign-item">
+                <input type="email" id="aplyer_id_input" name="email" placeholder="输入邮箱" autocomplete="on" />
+                <span class="user-icon icon">u</span>
+            </div>
+            <div class="sign-item">
+                <input type="text" id="aplyer_name_input" name="username" placeholder="输入用户名" autocomplete="on" />
+                <span class="user-icon icon">u</span>
+            </div>
+            <div class="sign-item">
+                <input type="password" id="aplyer_ps_input" name="password" placeholder="输入密码" />
+                <span class="password-icon icon">p</span>
+            </div>
+            <div class="sign-item">
+                <input type="password" id="aplyer_ps_re_input" name="password2" placeholder="确认密码" />
+                <span class="password-icon icon">p</span>
+            </div>
+            <div class="sign-item">
+                <label><input type="radio" id="aplyer_nan_input" name="gender" value="男" />男</label>
+                <label><input type="radio" id="aplyer_nv_input" name="gender" value="女" />女</label>
+                <label><input type="radio" id="aplyer_non_input" name="gender" value="保密" />保密</label>
+                <span class="gender-icon icon"><b>性别</b></span>
+            </div>
+            <div id="area_choose" class="sign-item">
+                <select id="country" name="country"><option>国家</option></select>
+                <select id="province" name="province"><option value='省份'>省份</option></select>
+                <select id="city" name="city"><option value='城市'>城市</option></select>
+                <span class="area-icon icon"><b>地址</b></span>
+            </div>
+            <div class="sign-item">
+                <input type="text" id="area" name="moreaddress" placeholder="具体地址" />
+            </div>
+            <div class="sign-item">
+                <button type="submit">申请</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!--原来的注册
+    <div class="col-md-4" id="signup-part">
+        <form action="" method="POST" name="login">
+            <div>
+                <p>
+                    <label>邮箱</label>
+                    <input type="email" id="aplyer_id_input" name="email" />
+                </p>
+                <p>
+                    <label>密码</label>
+                    <input type="password" id="aplyer_ps_input" name="password" />
+                </p>
+                <p>
+                    <label>确认密码</label>
+                    <input type="password" id="aplyer_ps_re_input" name="password2" />
+                </p>
+                <p>
+                    <label>昵称</label>
+                    <input type="text" name="username" />
+                </p>
+                <p>
+                    <label>性别</label>
+                    <label><input type="radio" id="aplyer_nan_input" name="gender" value="男" />男</label>
+                    <label><input type="radio" id="aplyer_nv_input" name="gender" value="女" />女</label>
+                    <label><input type="radio" id="aplyer_non_input" name="gender" value="保密" />保密</label>
+                </p>
+                <p id="area_choose">
+                    <label>地址</label>
+                    <select id="country" name="country"><option>国家</option></select>
+                    <select id="province" name="province"><option value='省份'>省份</option></select>
+                    <select id="city" name="city"><option value='城市'>城市</option></select>
+                </p>
+                <p>
+                    <label>具体地址</label>
+                    <input type="text" id="area" name="moreaddress" />
+                </p>
+            </div>
+            <p><button type="submit">申请</button></p>
+        </form>
+    </div>
+        -->
 </div>
+{% endblock %}
 
+{% block scripts %}
+<script src="/static/scripts/forregister.js"></script>
+<script type="text/javascript" charset="UTF-8" src="/static/scripts/prefixfree.min.js"></script>
 {% endblock %}

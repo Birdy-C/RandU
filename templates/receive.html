@@ -3,10 +3,12 @@
 {% block content %}
 <!--我要登记模块，提交以后链接到zonereceive -->
 <div>
-    <form id="receive-form" action="{{ url_for('???') }}" method="POST" name="???">
+    <form id="receive-form" action="{{ url_for('receive',username=current_user.username) }}" method="POST" name="receive-form">
+    	{{ form.hidden_tag() }}
+
         <div id="receive-id">
             <label>信的ID</label>
-            <input type="number" id="xxxxxxxxxxxxx" name="xxxxxxxxxxxxx" />
+            <input type="number" id="xxxxxxxxxxxxx" name="mail_ID" />
         </div>
         <div id="receive-button">
             <input type="submit" id="receive_bt" value="我确定填好了">

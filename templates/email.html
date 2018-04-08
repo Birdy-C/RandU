@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="foremail.css" />
+</head>
+
+<body>
+    <div class="email">
+        <img src="EmailBack.jpg" id="image_email" />
+        <div class="email_content">
+            <p id="email_head">尊敬的用户：</p>
+            <p id="email_name">以下是您登陆账户{{name}}时所需的令牌验证码：</p>
+            <p id="email_token">{{token}}</p>
+            <p id="information_name">29舍吃鸡团队</p>
+            <a href="{{url_for('about')}}" id="information_about">关于我们</a>
+        </div>
+    </div>
+</body>
+</html>

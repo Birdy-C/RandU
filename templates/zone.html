@@ -1,0 +1,57 @@
+﻿{% extends "userlayout.html" %}
+
+{% block content %}
+
+<!--待办事项-->
+<div>
+    <div>
+        <label id="hello-user">{{user_name}}</label>
+    </div>
+    <hr />
+    <div>
+        <label>我的待办信件</label>
+        <ol>
+            <!--这里是一个待办信件的格式，只是写着看看-->
+            <li>
+                <span>时间</span>
+                <span>to</span>
+                <span>对方用户名</span>
+                <span>性别</span>
+                <span>地址</span>
+                <span>状态</span>
+                <span>
+                    <button>已发送</button>
+                </span>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<!--写说说的框-->
+<div>
+    <label>发布新记录</label>
+    <div>
+        <input class="state-box" type="text" />
+        <button>添加图片</button>
+        <button>发表</button>
+    </div>
+</div>
+<!--展示栏-->
+<div>
+    <ol>
+        <li>
+            <span>
+                
+            </span>
+            <span>
+                <img src="/" alt="正在加载" />
+            </span>
+            <span>
+                <p>一条记录</p>
+            </span>
+        </li>
+    </ol>
+</div>
+
+
+{% endblock %}
