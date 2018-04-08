@@ -1,0 +1,42 @@
+﻿{% extends "userlayout.html" %}
+
+{% block content %}
+
+<div class="layout-personal">
+    <div id="person-head">
+        <span id="head-avater">
+            <img src="../static/image/defaultHead{{gender}}.jpg" id="user-avatar" />
+        </span>
+        <span id="head-detail-name">
+            <lable id="user-name">{{name}}</lable>
+        </span>
+    </div>
+
+
+    <div id="user-state">
+        <form id="user-state-form" action="{{ url_for('personal',username=current_user.username)}}" method="POST" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <textarea class="state-box" id="user-state-text" name="user">🙃写点什么吧……</textarea>
+            <input type="submit" value="发表" id="user-state-submit" />
+            <lable id="text-count"></lable>
+        </form>
+    </div>
+
+    <div class="head-detail-info">
+        <div class="user-item" id="user-gender">性&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：&nbsp;{{gender}}</div>
+        <div class="user-item" id="user-email">邮&nbsp;&nbsp;&nbsp;箱&nbsp;&nbsp;：&nbsp;{{email}}</div>
+        <div class="user-item" id="user-addr">地&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;：&nbsp;{{addr}}</div>
+        <div class="user-item" id="user-money">金&nbsp;&nbsp;&nbsp;币&nbsp;&nbsp;：&nbsp;{{current_user.money}}</div>
+        <div class="user-item" id="user-information">心&nbsp;&nbsp;&nbsp;情&nbsp;&nbsp;：&nbsp;{{information}}</div>
+    </div>
+    <!--<div>
+        <button id="change" type="button">修改</button>
+    </div>  -->
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/scripts/forpersonal.js"></script>
+{% endblock %}

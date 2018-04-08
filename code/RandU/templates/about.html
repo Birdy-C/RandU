@@ -1,0 +1,52 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+<div id="about-body">
+    <div id="about-head">
+        <h2 class="center-title">- {{ title }} -</h2>
+        <h3 class="center-sub-title">{{ message }}</h3>
+    </div>
+    <hr id="big-horizontal-line"/>
+    <div>
+        <h4 class="center-l2-title">▼&nbsp;RandU介绍</h4>
+        <p class="center-text">RandU，即Random-you<br />中文名为宇宙随机撒点式寄信|收信|交友|相亲平台。</p>
+        <p>&nbsp;</p>
+        <h4 class="center-l2-title">▼&nbsp;RandU功能</h4>
+        <p class="center-left-text"><b>◐&nbsp;寄信功能：&nbsp;</b>为寄信者不科学地随机分配写信地址</p>
+        <p class="center-left-text"><b>◑&nbsp;收信功能：&nbsp;</b>对接受到的信件进行确认</p>
+        <p class="center-left-text"><b>◒&nbsp;展示功能：&nbsp;</b>可以发表收寄信件的图文</p>
+        <p class="center-left-text"><b>◓&nbsp;更多功能：&nbsp;</b>用了就知道</p>
+        <p>&nbsp;</p>
+        <h4 class="center-l2-title">▼&nbsp;RandU团队</h4>
+        <div id="team-part">
+            <p class="center-left-text"><b>◐&nbsp;团队名称：&nbsp;</b>402吃鸡团队</p>
+            <p class="center-left-text"><b>◑&nbsp;队名由来：&nbsp;</b>点了x次外卖吃炸鸡</p>
+            <img id="team-pic1" src="../static/image/team.jpg">
+            <img id="team-pic" src="../static/image/team2.jpg">
+            <ul class="hover-menu">
+                <li>
+                    <a class="hover-round-card" id="card-yuan">Birdy</a>
+                    <em id="info-yuan">早上好吖单身狗</em>
+                </li>
+                <li>
+                    <a class="hover-round-card" id="card-tuan">团总</a>
+                    <em id="info-tuan">超凶，超能打</em>
+                </li>
+                <li>
+                    <a class="hover-round-card" id="card-fei">张飞</a>
+                    <em id="info-fei">版位招租</em>
+                </li>
+                <li>
+                    <a class="hover-round-card" id="card-qian">倩倩</a>
+                    <em id="info-qian">床是生命之源(｡•́__ก̀｡)</em>
+                </li>
+                <li>
+                    <a class="hover-round-card" id="card-meng">Sunn.</a>
+                    <em id="info-meng">啊巧克力夹心饼干</em>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
